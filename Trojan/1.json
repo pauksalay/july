@@ -42,6 +42,17 @@
         "udp": true,
         "allowTransparent": false
       }
+    },
+    {
+      "tag": "api",
+      "port": 10813,
+      "listen": "127.0.0.1",
+      "protocol": "dokodemo-door",
+      "settings": {
+        "udp": false,
+        "address": "127.0.0.1",
+        "allowTransparent": false
+      }
     }
   ],
   "outbounds": [
@@ -51,11 +62,11 @@
       "settings": {
         "servers": [
           {
-            "address": "www.visa.com.sg",
+            "address": "190.93.247.238",
             "method": "chacha20",
             "ota": false,
-            "password": "Watashi_VPN",
-            "port": 8443,
+            "password": "REvil",
+            "port": 2053,
             "level": 1
           }
         ]
@@ -65,14 +76,18 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "t-watashi-r-jacket-o-people-jan.watashi-java.ir",
-          "fingerprint": "chrome"
+          "serverName": "trauma.nscl.ir",
+          "fingerprint": "firefox"
         },
         "wsSettings": {
           "path": "/?ed=2560",
           "headers": {
-            "Host": "t-watashi-r-jacket-o-people-jan.watashi-java.ir"
+            "Host": "trauma.nscl.ir",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0"
           }
+        },
+        "sockopt": {
+          "dialerProxy": "proxy3"
         }
       },
       "mux": {
@@ -93,37 +108,52 @@
           "type": "http"
         }
       }
+    },
+    {
+      "tag": "proxy3",
+      "protocol": "freedom",
+      "settings": {
+        "fragment": {
+          "packets": "tlshello",
+          "length": "10-20",
+          "interval": "10-20"
+        }
+      }
     }
   ],
-  "dns": {
-    "hosts": {
-      "dns.google": "8.8.8.8",
-      "proxy.example.com": "127.0.0.1"
-    },
-    "servers": [
-      {
-        "address": "223.5.5.5",
-        "domains": [
-          "www.visa.com.sg"
-        ]
-      },
-      {
-        "address": "223.5.5.5",
-        "domains": [
-          "geosite:cn",
-          "geosite:geolocation-cn"
-        ],
-        "expectIPs": [
-          "geoip:cn"
-        ]
-      },
-      "1.1.1.1",
-      "8.8.8.8",
-      "https://dns.google/dns-query"
+  "stats": {},
+  "api": {
+    "tag": "api",
+    "services": [
+      "StatsService"
     ]
   },
+  "policy": {
+    "system": {
+      "statsOutboundUplink": true,
+      "statsOutboundDownlink": true
+    }
+  },
+  "dns": {
+    "hosts": {
+      "cloudflare-dns.com": [
+        "104.16.248.249",
+        "104.16.249.249"
+      ]
+    },
+    "servers": [
+      "https://cloudflare-dns.com/dns-query",
+      {
+        "address": "localhost",
+        "domains": [
+          "domain:ir"
+        ]
+      }
+    ],
+    "tag": "dns"
+  },
   "routing": {
-    "domainStrategy": "AsIs",
+    "domainStrategy": "IPIfNonMatch",
     "rules": [
       {
         "type": "field",
@@ -134,17 +164,26 @@
       },
       {
         "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "domain:example-example.com",
-          "domain:example-example2.com"
+        "outboundTag": "block",
+        "ip": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
         ]
       },
       {
         "type": "field",
-        "port": "443",
-        "network": "udp",
-        "outboundTag": "block"
+        "outboundTag": "direct",
+        "domain": [
+          "geosite:private"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "ip": [
+          "geoip:private"
+        ]
       },
       {
         "type": "field",
@@ -157,20 +196,15 @@
         "type": "field",
         "outboundTag": "direct",
         "domain": [
-          "geosite:cn",
-          "geosite:geolocation-cn"
+          "geosite:category-ir",
+          "domain:ir"
         ]
       },
       {
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "223.5.5.5/32",
-          "119.29.29.29/32",
-          "180.76.76.76/32",
-          "114.114.114.114/32",
-          "geoip:private",
-          "geoip:cn"
+          "geoip:ir"
         ]
       },
       {
