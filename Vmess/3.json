@@ -62,11 +62,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "152.69.197.74",
-            "port": 12345,
+            "address": "162.159.153.2",
+            "port": 443,
             "users": [
               {
-                "id": "b8a6bf58-485a-4046-b386-b3661bf65eff",
+                "id": "93ea486a-bada-42a4-ac38-d088b320fa1e",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto"
@@ -77,11 +77,21 @@
       },
       "streamSettings": {
         "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "serverName": "xmivideo.cfd",
+          "fingerprint": "firefox"
+        },
         "wsSettings": {
-          "path": "/bb",
+          "path": "/linkws",
           "headers": {
+            "Host": "xmivideo.cfd",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0"
           }
+        },
+        "sockopt": {
+          "dialerProxy": "proxy3"
         }
       },
       "mux": {
@@ -100,6 +110,17 @@
       "settings": {
         "response": {
           "type": "http"
+        }
+      }
+    },
+    {
+      "tag": "proxy3",
+      "protocol": "freedom",
+      "settings": {
+        "fragment": {
+          "packets": "tlshello",
+          "length": "10-20",
+          "interval": "10-20"
         }
       }
     }

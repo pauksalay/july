@@ -62,11 +62,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "152.69.197.74",
-            "port": 12345,
+            "address": "152.67.218.38",
+            "port": 443,
             "users": [
               {
-                "id": "b8a6bf58-485a-4046-b386-b3661bf65eff",
+                "id": "b5e9480a-b7aa-40a4-f9a7-5299b5e363b4",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto"
@@ -78,7 +78,7 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/bb",
+          "path": "/",
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0"
           }
