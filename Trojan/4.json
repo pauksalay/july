@@ -45,7 +45,7 @@
     },
     {
       "tag": "api",
-      "port": 10813,
+      "port": 62495,
       "listen": "127.0.0.1",
       "protocol": "dokodemo-door",
       "settings": {
@@ -62,22 +62,29 @@
       "settings": {
         "servers": [
           {
-            "address": "52.231.36.138",
+            "address": "23.227.39.222",
             "method": "chacha20",
             "ota": false,
-            "password": "5f27eb67-a1ea-43a3-9a33-8d85d61b9574",
-            "port": 443,
+            "password": "REvil",
+            "port": 2053,
             "level": 1
           }
         ]
       },
       "streamSettings": {
-        "network": "tcp",
+        "network": "ws",
         "security": "tls",
         "tlsSettings": {
-          "allowInsecure": true,
-          "serverName": "krnode01.oportal.cc",
+          "allowInsecure": false,
+          "serverName": "trauma.nscl.ir",
           "fingerprint": "firefox"
+        },
+        "wsSettings": {
+          "path": "/?ed=2560",
+          "headers": {
+            "Host": "trauma.nscl.ir",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0"
+          }
         },
         "sockopt": {
           "dialerProxy": "proxy3"
