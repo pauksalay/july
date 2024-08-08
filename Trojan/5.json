@@ -45,7 +45,7 @@
     },
     {
       "tag": "api",
-      "port": 10813,
+      "port": 62495,
       "listen": "127.0.0.1",
       "protocol": "dokodemo-door",
       "settings": {
@@ -62,10 +62,10 @@
       "settings": {
         "servers": [
           {
-            "address": "104.18.12.229",
+            "address": "23.227.39.222",
             "method": "chacha20",
             "ota": false,
-            "password": "Watashi_VPN",
+            "password": "REvil",
             "port": 2053,
             "level": 1
           }
@@ -76,13 +76,13 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "t-watashi-r-jacket-o-people-jan.watashi-java.ir",
+          "serverName": "trauma.nscl.ir",
           "fingerprint": "firefox"
         },
         "wsSettings": {
-          "path": "/",
+          "path": "/?ed=2560",
           "headers": {
-            "Host": "t-watashi-r-jacket-o-people-jan.watashi-java.ir",
+            "Host": "trauma.nscl.ir",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0"
           }
         },
