@@ -62,11 +62,11 @@
       "settings": {
         "servers": [
           {
-            "address": "104.248.150.84",
+            "address": "178.128.87.122",
             "method": "chacha20-ietf-poly1305",
             "ota": false,
-            "password": "gdC4ESfhJ1kqO6HvFy56zy",
-            "port": 32725,
+            "password": "BSkNIb9jkuyAlSRdMGQ39k",
+            "port": 26072,
             "level": 1
           }
         ]

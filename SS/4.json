@@ -45,7 +45,7 @@
     },
     {
       "tag": "api",
-      "port": 60902,
+      "port": 10813,
       "listen": "127.0.0.1",
       "protocol": "dokodemo-door",
       "settings": {
@@ -62,11 +62,11 @@
       "settings": {
         "servers": [
           {
-            "address": "130.0.233.247",
+            "address": "152.42.220.111",
             "method": "chacha20-ietf-poly1305",
             "ota": false,
-            "password": "9Eli0vyoLMRCQqln6HUVZEOrEqjG7Aefj6RBuxsxMQhMevOk",
-            "port": 51348,
+            "password": "evXZpO5n4NnYLpGJk1eY2F",
+            "port": 23701,
             "level": 1
           }
         ]

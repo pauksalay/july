@@ -62,11 +62,11 @@
       "settings": {
         "servers": [
           {
-            "address": "series-a2-mec.samanehha.co",
+            "address": "152.42.162.136",
             "method": "chacha20-ietf-poly1305",
             "ota": false,
-            "password": "u17T3BvpYaaiuW2c",
-            "port": 443,
+            "password": "ASJw2ifm1eRMpIYK4hr51q",
+            "port": 48830,
             "level": 1
           }
         ]
@@ -115,12 +115,6 @@
       ]
     },
     "servers": [
-      {
-        "address": "223.5.5.5",
-        "domains": [
-          "series-a2-mec.samanehha.co"
-        ]
-      },
       "https://cloudflare-dns.com/dns-query",
       {
         "address": "localhost",
