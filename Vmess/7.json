@@ -51,11 +51,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "45.154.156.178",
-            "port": 32648,
+            "address": "85.159.229.8",
+            "port": 8443,
             "users": [
               {
-                "id": "bc8e1235-6cef-4bdd-f3f2-0b4f3c8a7b70",
+                "id": "afe57557-df24-43e5-9cea-5d2acc2cad08",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto"
@@ -65,7 +65,15 @@
         ]
       },
       "streamSettings": {
-        "network": "tcp"
+        "network": "grpc",
+        "grpcSettings": {
+          "serviceName": "",
+          "multiMode": false,
+          "idle_timeout": 60,
+          "health_check_timeout": 20,
+          "permit_without_stream": false,
+          "initial_windows_size": 0
+        }
       },
       "mux": {
         "enabled": false,
@@ -96,8 +104,7 @@
       {
         "address": "223.5.5.5",
         "domains": [
-          "geosite:cn",
-          "geosite:geolocation-cn"
+          "geosite:cn"
         ],
         "expectIPs": [
           "geoip:cn"
@@ -128,12 +135,6 @@
       },
       {
         "type": "field",
-        "port": "443",
-        "network": "udp",
-        "outboundTag": "block"
-      },
-      {
-        "type": "field",
         "outboundTag": "block",
         "domain": [
           "geosite:category-ads-all"
@@ -143,26 +144,16 @@
         "type": "field",
         "outboundTag": "direct",
         "domain": [
-          "geosite:cn",
-          "geosite:geolocation-cn"
+          "geosite:cn"
         ]
       },
       {
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "223.5.5.5/32",
-          "119.29.29.29/32",
-          "180.76.76.76/32",
-          "114.114.114.114/32",
           "geoip:private",
           "geoip:cn"
         ]
-      },
-      {
-        "type": "field",
-        "port": "0-65535",
-        "outboundTag": "proxy"
       }
     ]
   }

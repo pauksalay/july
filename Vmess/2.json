@@ -42,17 +42,6 @@
         "udp": true,
         "allowTransparent": false
       }
-    },
-    {
-      "tag": "api",
-      "port": 10813,
-      "listen": "127.0.0.1",
-      "protocol": "dokodemo-door",
-      "settings": {
-        "udp": false,
-        "address": "127.0.0.1",
-        "allowTransparent": false
-      }
     }
   ],
   "outbounds": [
@@ -62,11 +51,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "152.67.218.38",
-            "port": 443,
+            "address": "195.254.165.63",
+            "port": 34497,
             "users": [
               {
-                "id": "b5e9480a-b7aa-40a4-f9a7-5299b5e363b4",
+                "id": "860a1295-0d81-403c-a179-97f396437809",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto"
@@ -76,11 +65,42 @@
         ]
       },
       "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/",
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0"
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "serverName": "ttl.unique69.com",
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "fingerprint": "randomized"
+        },
+        "tcpSettings": {
+          "header": {
+            "type": "http",
+            "request": {
+              "version": "1.1",
+              "method": "GET",
+              "path": [
+                "/@HosseinStore_Za/@NEKO_Za"
+              ],
+              "headers": {
+                "Host": [
+                  ""
+                ],
+                "User-Agent": [
+                  ""
+                ],
+                "Accept-Encoding": [
+                  "gzip, deflate"
+                ],
+                "Connection": [
+                  "keep-alive"
+                ],
+                "Pragma": "no-cache"
+              }
+            }
           }
         }
       },
@@ -104,39 +124,29 @@
       }
     }
   ],
-  "stats": {},
-  "api": {
-    "tag": "api",
-    "services": [
-      "StatsService"
-    ]
-  },
-  "policy": {
-    "system": {
-      "statsOutboundUplink": true,
-      "statsOutboundDownlink": true
-    }
-  },
   "dns": {
     "hosts": {
-      "cloudflare-dns.com": [
-        "104.16.248.249",
-        "104.16.249.249"
-      ]
+      "dns.google": "8.8.8.8",
+      "proxy.example.com": "127.0.0.1"
     },
     "servers": [
-      "https://cloudflare-dns.com/dns-query",
       {
-        "address": "localhost",
+        "address": "223.5.5.5",
         "domains": [
-          "domain:ir"
+          "geosite:cn",
+          "geosite:geolocation-cn"
+        ],
+        "expectIPs": [
+          "geoip:cn"
         ]
-      }
-    ],
-    "tag": "dns"
+      },
+      "1.1.1.1",
+      "8.8.8.8",
+      "https://dns.google/dns-query"
+    ]
   },
   "routing": {
-    "domainStrategy": "IPIfNonMatch",
+    "domainStrategy": "AsIs",
     "rules": [
       {
         "type": "field",
@@ -147,26 +157,17 @@
       },
       {
         "type": "field",
-        "outboundTag": "block",
-        "ip": [
-          "10.10.34.34",
-          "10.10.34.35",
-          "10.10.34.36"
-        ]
-      },
-      {
-        "type": "field",
         "outboundTag": "direct",
         "domain": [
-          "geosite:private"
+          "domain:example-example.com",
+          "domain:example-example2.com"
         ]
       },
       {
         "type": "field",
-        "outboundTag": "direct",
-        "ip": [
-          "geoip:private"
-        ]
+        "port": "443",
+        "network": "udp",
+        "outboundTag": "block"
       },
       {
         "type": "field",
@@ -179,15 +180,20 @@
         "type": "field",
         "outboundTag": "direct",
         "domain": [
-          "geosite:category-ir",
-          "domain:ir"
+          "geosite:cn",
+          "geosite:geolocation-cn"
         ]
       },
       {
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "geoip:ir"
+          "223.5.5.5/32",
+          "119.29.29.29/32",
+          "180.76.76.76/32",
+          "114.114.114.114/32",
+          "geoip:private",
+          "geoip:cn"
         ]
       },
       {

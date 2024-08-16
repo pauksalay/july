@@ -42,17 +42,6 @@
         "udp": true,
         "allowTransparent": false
       }
-    },
-    {
-      "tag": "api",
-      "port": 10813,
-      "listen": "127.0.0.1",
-      "protocol": "dokodemo-door",
-      "settings": {
-        "udp": false,
-        "address": "127.0.0.1",
-        "allowTransparent": false
-      }
     }
   ],
   "outbounds": [
@@ -62,14 +51,14 @@
       "settings": {
         "vnext": [
           {
-            "address": "198.41.192.162",
-            "port": 80,
+            "address": "104.21.61.246",
+            "port": 443,
             "users": [
               {
-                "id": "b2413a5a-d5d0-4447-b6d7-6dbcd2989a35",
+                "id": "f9ccede9-ca9c-4719-b105-e494742499e3",
                 "alterId": 0,
                 "email": "t@t.tt",
-                "security": "none"
+                "security": "auto"
               }
             ]
           }
@@ -77,11 +66,16 @@
       },
       "streamSettings": {
         "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "serverName": "kmz3.sassanidempire.com",
+          "show": false
+        },
         "wsSettings": {
-          "path": "/vmess",
+          "path": "/",
           "headers": {
-            "Host": "dl2.127.0.0.1.\u0432\u043E\u0441\u0442\u0435\u0439control.\u63A7\u5236.k\u043E\u043D\u0442\u0440\u043E\u043B\u044C\u8FB2\u9054\u61F2\u7F70.c\u0432\u043E\u0434\u043A\u0430h\u043E.wonkacapitano.buzz.",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0"
+            "Host": "kmz3.sassanidempire.com"
           }
         }
       },
@@ -105,39 +99,28 @@
       }
     }
   ],
-  "stats": {},
-  "api": {
-    "tag": "api",
-    "services": [
-      "StatsService"
-    ]
-  },
-  "policy": {
-    "system": {
-      "statsOutboundUplink": true,
-      "statsOutboundDownlink": true
-    }
-  },
   "dns": {
     "hosts": {
-      "cloudflare-dns.com": [
-        "104.16.248.249",
-        "104.16.249.249"
-      ]
+      "dns.google": "8.8.8.8",
+      "proxy.example.com": "127.0.0.1"
     },
     "servers": [
-      "https://cloudflare-dns.com/dns-query",
       {
-        "address": "localhost",
+        "address": "223.5.5.5",
         "domains": [
-          "domain:ir"
+          "geosite:cn"
+        ],
+        "expectIPs": [
+          "geoip:cn"
         ]
-      }
-    ],
-    "tag": "dns"
+      },
+      "1.1.1.1",
+      "8.8.8.8",
+      "https://dns.google/dns-query"
+    ]
   },
   "routing": {
-    "domainStrategy": "IPIfNonMatch",
+    "domainStrategy": "AsIs",
     "rules": [
       {
         "type": "field",
@@ -148,25 +131,10 @@
       },
       {
         "type": "field",
-        "outboundTag": "block",
-        "ip": [
-          "10.10.34.34",
-          "10.10.34.35",
-          "10.10.34.36"
-        ]
-      },
-      {
-        "type": "field",
         "outboundTag": "direct",
         "domain": [
-          "geosite:private"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "ip": [
-          "geoip:private"
+          "domain:example-example.com",
+          "domain:example-example2.com"
         ]
       },
       {
@@ -180,21 +148,16 @@
         "type": "field",
         "outboundTag": "direct",
         "domain": [
-          "geosite:category-ir",
-          "domain:ir"
+          "geosite:cn"
         ]
       },
       {
         "type": "field",
         "outboundTag": "direct",
         "ip": [
-          "geoip:ir"
+          "geoip:private",
+          "geoip:cn"
         ]
-      },
-      {
-        "type": "field",
-        "port": "0-65535",
-        "outboundTag": "proxy"
       }
     ]
   }
