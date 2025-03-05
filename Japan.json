@@ -1,0 +1,736 @@
+{
+  "log": {
+    "level": "debug",
+    "timestamp": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "secret": "",
+      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "",
+      "default_mode": "rule"
+    },
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": false
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxyDns",
+        "address": "tls://8.8.8.8",
+        "detour": "proxy"
+      },
+      {
+        "tag": "localDns",
+        "address": "https://1.12.12.12/dns-query",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "localDns"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "localDns"
+      },
+      {
+        "clash_mode": "global",
+        "server": "proxyDns"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "address": [
+        "172.19.0.0/30"
+      ],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    },
+    {
+      "tag": "mixed-in",
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "type": "selector",
+      "outbounds": [
+        "auto",
+        "direct",
+        "🇯🇵 东京京007｜0.01元/G｜hy2｜",
+        "🇯🇵 东京京006｜0.01元/G｜hy2｜",
+        "🇯🇵 akile日本",
+        "🇯🇵 JP_26",
+        "🇯🇵 JP5-HY2",
+        "🇯🇵 JP4-HY2",
+        "🇯🇵 JP2-HY2",
+        "🇯🇵 JP1-HY2",
+        "🇯🇵 Japan-1",
+        "🇯🇵 Japan-2",
+        "🇯🇵 JP-1Gbps",
+        "🇯🇵 免费-日本2-Ver.7",
+        "🇯🇵 免费-日本4-Ver.7",
+        "🇯🇵 免费-日本6-Ver.7",
+        "🇯🇵 免费-日本7-Ver.1",
+        "🇯🇵 免费-日本2-Ver.7 2",
+        "🇯🇵 免费-日本3-Ver.6",
+        "🇯🇵 免费-日本4-Ver.7 2",
+        "🇯🇵 免费-日本6-Ver.7 2",
+        "🇯🇵 免费-日本7-Ver.1 2",
+        "🇯🇵 日本Z05 | 下载专用 | x0.01",
+        "🇯🇵 日本Z06 | 下载专用 | x0.01",
+        "🇯🇵 免费-日本2-Ver.7 3",
+        "🇯🇵 免费-日本4-Ver.7 3",
+        "🇯🇵 免费-日本6-Ver.7 3",
+        "🇯🇵 免费-日本7-Ver.1 3",
+        "🇯🇵 日本Z05 | 下载专用 | x0.01 2",
+        "🇯🇵 日本Z06 | 下载专用 | x0.01 2",
+        "🇯🇵 免费-日本1-Ver.6",
+        "🇯🇵 免费-日本2-Ver.7 4",
+        "🇯🇵 免费-日本4-Ver.7 4",
+        "🇯🇵 免费-日本6-Ver.7 4",
+        "🇯🇵 免费-日本7-Ver.1 4",
+        "🇯🇵 免费-日本2-Ver.7 5",
+        "🇯🇵 免费-日本3-Ver.6 2",
+        "🇯🇵 免费-日本4-Ver.7 5",
+        "🇯🇵 免费-日本6-Ver.7 5",
+        "🇯🇵 免费-日本7-Ver.1 5"
+      ]
+    },
+    {
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
+        "🇯🇵 东京京007｜0.01元/G｜hy2｜",
+        "🇯🇵 东京京006｜0.01元/G｜hy2｜",
+        "🇯🇵 akile日本",
+        "🇯🇵 JP_26",
+        "🇯🇵 JP5-HY2",
+        "🇯🇵 JP4-HY2",
+        "🇯🇵 JP2-HY2",
+        "🇯🇵 JP1-HY2",
+        "🇯🇵 Japan-1",
+        "🇯🇵 Japan-2",
+        "🇯🇵 JP-1Gbps",
+        "🇯🇵 免费-日本2-Ver.7",
+        "🇯🇵 免费-日本4-Ver.7",
+        "🇯🇵 免费-日本6-Ver.7",
+        "🇯🇵 免费-日本7-Ver.1",
+        "🇯🇵 免费-日本2-Ver.7 2",
+        "🇯🇵 免费-日本3-Ver.6",
+        "🇯🇵 免费-日本4-Ver.7 2",
+        "🇯🇵 免费-日本6-Ver.7 2",
+        "🇯🇵 免费-日本7-Ver.1 2",
+        "🇯🇵 日本Z05 | 下载专用 | x0.01",
+        "🇯🇵 日本Z06 | 下载专用 | x0.01",
+        "🇯🇵 免费-日本2-Ver.7 3",
+        "🇯🇵 免费-日本4-Ver.7 3",
+        "🇯🇵 免费-日本6-Ver.7 3",
+        "🇯🇵 免费-日本7-Ver.1 3",
+        "🇯🇵 日本Z05 | 下载专用 | x0.01 2",
+        "🇯🇵 日本Z06 | 下载专用 | x0.01 2",
+        "🇯🇵 免费-日本1-Ver.6",
+        "🇯🇵 免费-日本2-Ver.7 4",
+        "🇯🇵 免费-日本4-Ver.7 4",
+        "🇯🇵 免费-日本6-Ver.7 4",
+        "🇯🇵 免费-日本7-Ver.1 4",
+        "🇯🇵 免费-日本2-Ver.7 5",
+        "🇯🇵 免费-日本3-Ver.6 2",
+        "🇯🇵 免费-日本4-Ver.7 5",
+        "🇯🇵 免费-日本6-Ver.7 5",
+        "🇯🇵 免费-日本7-Ver.1 5"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "tag": "🇯🇵 东京京007｜0.01元/G｜hy2｜",
+      "type": "hysteria2",
+      "server": "tk-007.xiaoxiaobujidao.xyz",
+      "server_port": 443,
+      "password": "2e511b5d-c180-4eee-a4b1-e024aafa25b8",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "tk-007.xiaoxiaobujidao.xyz",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 东京京006｜0.01元/G｜hy2｜",
+      "type": "hysteria2",
+      "server": "tk-006.xiaoxiaobujidao.xyz",
+      "server_port": 443,
+      "password": "2e511b5d-c180-4eee-a4b1-e024aafa25b8",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "tk-006.xiaoxiaobujidao.xyz",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 akile日本",
+      "type": "hysteria2",
+      "server": "156.246.95.167",
+      "server_port": 25497,
+      "password": "e8ef4636",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 JP_26",
+      "type": "hysteria2",
+      "server": "alipay-api-jp-a-1.testred.xyz",
+      "server_port": 443,
+      "password": "d4d3a6ca-4da0-410a-9b8f-e37c023ae30c",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "alipay-api-jp-a-1.testred.xyz",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 JP5-HY2",
+      "type": "hysteria2",
+      "server": "jp5.dexlos.com",
+      "server_port": 9154,
+      "password": "93DB90C8-0F89-44E4-9E9F-21E62AA33AD9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "jp5.dexlos.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 JP4-HY2",
+      "type": "hysteria2",
+      "server": "jp4.dexlos.com",
+      "server_port": 7148,
+      "password": "93DB90C8-0F89-44E4-9E9F-21E62AA33AD9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "jp4.dexlos.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 JP2-HY2",
+      "type": "hysteria2",
+      "server": "jp2.dexlos.com",
+      "server_port": 3546,
+      "password": "93DB90C8-0F89-44E4-9E9F-21E62AA33AD9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "jp2.dexlos.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 JP1-HY2",
+      "type": "hysteria2",
+      "server": "jp1.dexlos.com",
+      "server_port": 1365,
+      "password": "93DB90C8-0F89-44E4-9E9F-21E62AA33AD9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "jp1.dexlos.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 Japan-1",
+      "type": "hysteria2",
+      "server": "45.149.156.151",
+      "server_port": 10634,
+      "password": "8e1cd2aa0e413470",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 Japan-2",
+      "type": "hysteria2",
+      "server": "18.179.21.204",
+      "server_port": 14150,
+      "password": "73388997595e884e",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇯🇵 JP-1Gbps",
+      "type": "vless",
+      "server": "back-hk2.uni-verse.top",
+      "server_port": 443,
+      "uuid": "4e62bc63-6696-48f8-81b1-ac4a08dde8e4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "back-hk2.uni-verse.top"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/go",
+        "headers": {
+          "Host": "back-hk2.uni-verse.top"
+        }
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本2-Ver.7",
+      "type": "vmess",
+      "server": "6x8hi-g03.jp02-9a99-vm0.entry.fr0307a.art",
+      "server_port": 11775,
+      "uuid": "4a6d24df-1abe-34d7-8e29-2cc978443a49",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本4-Ver.7",
+      "type": "vmess",
+      "server": "jju1q-g03.jp04-3771-vm0.entry.fr0307a.art",
+      "server_port": 446,
+      "uuid": "4a6d24df-1abe-34d7-8e29-2cc978443a49",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本6-Ver.7",
+      "type": "vmess",
+      "server": "r53d4-g03.jp06-7c5a-vm0.entry.fr0307a.art",
+      "server_port": 28785,
+      "uuid": "4a6d24df-1abe-34d7-8e29-2cc978443a49",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本7-Ver.1",
+      "type": "vmess",
+      "server": "53j6a-g03.jp07-1f28-vm0.entry.fr0307a.art",
+      "server_port": 28785,
+      "uuid": "4a6d24df-1abe-34d7-8e29-2cc978443a49",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本2-Ver.7 2",
+      "type": "vmess",
+      "server": "qlnfw-g01.jp02-9a99-vm0.entry.fr0307a.art",
+      "server_port": 11773,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本3-Ver.6",
+      "type": "vmess",
+      "server": "7n7un-g01.jp03-7d22-vm0.entry.fr0307a.art",
+      "server_port": 21581,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本4-Ver.7 2",
+      "type": "vmess",
+      "server": "0hei6-g01.jp04-3771-vm0.entry.fr0307a.art",
+      "server_port": 444,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本6-Ver.7 2",
+      "type": "vmess",
+      "server": "7m73c-g01.jp06-7c5a-vm0.entry.fr0307a.art",
+      "server_port": 28783,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本7-Ver.1 2",
+      "type": "vmess",
+      "server": "bpwg5-g01.jp07-1f28-vm0.entry.fr0307a.art",
+      "server_port": 28783,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 日本Z05 | 下载专用 | x0.01",
+      "type": "vmess",
+      "server": "04i8h-g04.jp05-vm5.entry.rtysjur.quest",
+      "server_port": 64657,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 日本Z06 | 下载专用 | x0.01",
+      "type": "vmess",
+      "server": "hswnc-g04.jp06-vm5.entry.rtysjur.quest",
+      "server_port": 665,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本2-Ver.7 3",
+      "type": "vmess",
+      "server": "4d0bt-g04.jp02-9a99-vm0.entry.fr0307a.art",
+      "server_port": 11776,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本4-Ver.7 3",
+      "type": "vmess",
+      "server": "cknnx-g04.jp04-3771-vm0.entry.fr0307a.art",
+      "server_port": 447,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本6-Ver.7 3",
+      "type": "vmess",
+      "server": "7o1b7-g04.jp06-7c5a-vm0.entry.fr0307a.art",
+      "server_port": 28786,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本7-Ver.1 3",
+      "type": "vmess",
+      "server": "lxi8t-g04.jp07-1f28-vm0.entry.fr0307a.art",
+      "server_port": 28786,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 日本Z05 | 下载专用 | x0.01 2",
+      "type": "vmess",
+      "server": "0fw4d-g04.jp05-vm5.entry.rtysjur.quest",
+      "server_port": 64657,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 日本Z06 | 下载专用 | x0.01 2",
+      "type": "vmess",
+      "server": "474tp-g04.jp06-vm5.entry.rtysjur.quest",
+      "server_port": 665,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本1-Ver.6",
+      "type": "vmess",
+      "server": "5kixm-g04.jp01-0986-vm0.entry.fr0307a.art",
+      "server_port": 21584,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本2-Ver.7 4",
+      "type": "vmess",
+      "server": "z04qk-g04.jp02-9a99-vm0.entry.fr0307a.art",
+      "server_port": 11776,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本4-Ver.7 4",
+      "type": "vmess",
+      "server": "lv4k9-g04.jp04-3771-vm0.entry.fr0307a.art",
+      "server_port": 447,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本6-Ver.7 4",
+      "type": "vmess",
+      "server": "2h3wu-g04.jp06-7c5a-vm0.entry.fr0307a.art",
+      "server_port": 28786,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本7-Ver.1 4",
+      "type": "vmess",
+      "server": "pe4st-g04.jp07-1f28-vm0.entry.fr0307a.art",
+      "server_port": 28786,
+      "uuid": "1e6ad906-0aee-39e4-bc62-baf392a0dfb7",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本2-Ver.7 5",
+      "type": "vmess",
+      "server": "f52wl-g01.jp02-9a99-vm0.entry.fr0307a.art",
+      "server_port": 11773,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本3-Ver.6 2",
+      "type": "vmess",
+      "server": "z1pt9-g01.jp03-7d22-vm0.entry.fr0307a.art",
+      "server_port": 21581,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本4-Ver.7 5",
+      "type": "vmess",
+      "server": "n6s6q-g01.jp04-3771-vm0.entry.fr0307a.art",
+      "server_port": 444,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "🇯🇵 免费-日本6-Ver.7 5",
+      "type": "vmess",
+      "server": "cilv6-g01.jp06-7c5a-vm0.entry.fr0307a.art",
+      "server_port": 28783,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      }
+    },
+    {
+      "tag": "🇯🇵 免费-日本7-Ver.1 5",
+      "type": "vmess",
+      "server": "dbbfh-g01.jp07-1f28-vm0.entry.fr0307a.art",
+      "server_port": 28783,
+      "uuid": "ff556cb6-b8bf-3b75-82b2-186e76ed2e2f",
+      "security": "auto",
+      "alter_id": 1,
+      "packet_encoding": "xudp"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rules": [
+      {
+        "inbound": [
+          "tun-in",
+          "mixed-in"
+        ],
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "clash_mode": "rule",
+        "action": "reject"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "clash_mode": "global",
+        "outbound": "proxy"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "proxy"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+        "download_detour": "direct"
+      }
+    ]
+  }
+}
